@@ -28,28 +28,18 @@ class menu:
        cost = self.getCost(coffee)
        coinsCollected = 0
        tryNum = 0
-       while True:
+      
+       print(f"\nThe cost of {coffee} is ${cost}\nPlease insert coins")
+       coinsCollected += self.showCoinMenu()
         
-         if tryNum == 0:
-           print(f"\nThe cost of {coffee} is ${cost}\nPlease insert coins")
-           coinsCollected += self.showCoinMenu()
-         else:
-          while True:
-             print(f"\nThe cost of {coffee} is ${cost}\nStill ${round((cost-coinsCollected),2)} remaining")
-             cnt = input("\nPlease press 'M' for inserting more coins or any other key to quit: ").lower()
-             if cnt == "m":
-                coinsCollected += self.showCoinMenu()
-                tryNum = 1
-                print(f"{coinsCollected}")
-                if cost > coinsCollected:
-                 continue
-                else:
-                 print(f"\nPlease take the change of ${round((coinsCollected - cost),2)}")
-                 print(f"\nPlease enjoy your {coffee} ☕")
-                 return
-             else:
-                 print(f"\nThank you for visiting. Please collect ${round(coinsCollected,2)}")
-                 return
+       if cost > coinsCollected:
+         print(f"\nSorry, the amount is insufficient\nPlease take back change of ${round((coinsCollected),2)}")
+         coinsCollected = 0
+       else:
+         print(f"\nPlease take the change of ${round((coinsCollected - cost),2)}")
+         print(f"\nPlease enjoy your {coffee.capitalize()} ☕")
+       return coinsCollected
+           
                  
          
          

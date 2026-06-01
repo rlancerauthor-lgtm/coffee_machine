@@ -1,5 +1,3 @@
-from pprint import pprint
-
 class menu:
     def __init__(self,menudict):
       self.menudict = menudict

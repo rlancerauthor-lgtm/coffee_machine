@@ -37,7 +37,9 @@ class machine:
     def countCoins(self,money):
         self.coins += money
 
-    
+    def getIngredients(self,ingredients):
+        pprint(ingredients["coffee"])
+
     def getAmountofIngredients(self):
         print(f"\nMilk: {self.milk}\nWater: {self.water}\nCoffee: {self.coffee}")
     
